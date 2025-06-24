@@ -1,3 +1,6 @@
+# Note: I do not claim to have created this entire project from scratch. I am standing on the shoulders of others, as most coders do. My unique additions here are more specificaly the Python code that the AI agent is using. This project was great practice for implementing an LLM on my local machine.
+
+
 # Self-hosted AI starter kit
 
 **Self-hosted AI Starter Kit** is an open-source Docker Compose template designed to swiftly initialize a comprehensive local AI and low-code development environment.
