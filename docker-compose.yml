@@ -8,7 +8,9 @@ networks:
   demo:
 
 x-n8n: &service-n8n
-  image: n8nio/n8n:latest
+  build: .    # <-- Add this line: build image from Dockerfile in current folder
+  #image: n8nio/n8n:latest
+  image: n8n-python          # Use your custom image here
   networks: ['demo']
   environment:
     - DB_TYPE=postgresdb
@@ -52,6 +54,8 @@ services:
     hostname: postgres
     networks: ['demo']
     restart: unless-stopped
+    ports:
+    - 5432:5432
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
@@ -89,6 +93,7 @@ services:
       - n8n_storage:/home/node/.n8n
       - ./n8n/demo-data:/demo-data
       - ./shared:/data/shared
+      - ./scripts:/scripts   
     depends_on:
       postgres:
         condition: service_healthy
